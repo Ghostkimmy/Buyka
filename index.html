@@ -211,12 +211,13 @@
     <span style="left: 90%; animation-delay: 8s;">❤️</span>
   </div>
 
-  <audio id="background-music" autoplay loop>
+  <!-- Audio Element -->
+  <audio id="background-music" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Main Content -->
-  <h1>Hey my babe I have a question for you...</h1>
+  <h1>Hey babe I have a question for you...</h1>
   <p>Will you be my valentine?</p>
 
   <!-- Image Container -->
@@ -270,10 +271,17 @@
 
       // Show flower container
       flowerContainer.classList.remove('hidden');
-      setTimeout(() => {
-        music.currentTime = 20; // Start from 20s
-        music.play();
-      }, 500); // 0.5s delay to ensure it's ready
+
+      // Play the music
+      music.play();
+    }
+
+    // Function to resize buttons (for the "No" button)
+    function resizeButtons() {
+      const yesButton = document.getElementById('yes-btn');
+      const noButton = document.getElementById('no-btn');
+      yesButton.style.fontSize = `${parseInt(window.getComputedStyle(yesButton).fontSize) + 5}px`;
+      noButton.style.fontSize = `${parseInt(window.getComputedStyle(noButton).fontSize) - 5}px`;
     }
   </script>
 </body>
